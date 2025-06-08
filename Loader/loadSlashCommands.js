@@ -9,8 +9,8 @@ module.exports = async bot => {
     let slashcommand = new Discord.SlashCommandBuilder()
       .setName(command.name)
       .setDescription(command.description)
-      .setContexts(command.dm)
-      .setDefaultMemberPermissions(command.permission === "Aucune" ? null : command.permission);
+      .setDefaultMemberPermissions(command.permission === "None" ? null : command.permission);
+    if (command.context !== "None") slashcommand.setContexts(command.context);
 
     if (command.options?.length >= 1) {
       for (let i = 0; i < command.options.length; i++) {

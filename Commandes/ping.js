@@ -3,8 +3,8 @@ const Discord = require("discord.js");
 module.exports = {
   name: "ping",
   description: "Affiche la latence",
-  permission: "Aucune",
-  dm: Discord.InteractionContextType.Guild,
+  permission: "None",
+  context: "None",
   category: "Utils",
   options: [],
 
