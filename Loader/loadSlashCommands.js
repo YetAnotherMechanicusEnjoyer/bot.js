@@ -15,18 +15,9 @@ module.exports = async bot => {
     if (command.options?.length >= 1) {
       for (let i = 0; i < command.options.length; i++) {
         if (command.options[i].type === "string")
-          slashcommand[`add${command.options[i].type.slice(0, 1).toUpperCase() + command.options[i].type.slice(1, command.options[i].type.length)}Option`]
-            (option => option
-              .setName(command.options[i].name)
-              .setDescription(command.options[i].description)
-              .setAutocomplete(command.options[i].autocomplete)
-              .setRequired(command.options[i].required))
+          slashcommand[`add${command.options[i].type.slice(0, 1).toUpperCase() + command.options[i].type.slice(1, command.options[i].type.length)}Option`](option => option.setName(command.options[i].name).setDescription(command.options[i].description).setAutocomplete(command.options[i].autocomplete).setRequired(command.options[i].required));
         else
-          slashcommand[`add${command.options[i].type.slice(0, 1).toUpperCase() + command.options[i].type.slice(1, command.options[i].type.length)}Option`]
-            (option => option
-              .setName(command.options[i].name)
-              .setDescription(command.options[i].description)
-              .setRequired(command.options[i].required))
+          slashcommand[`add${command.options[i].type.slice(0, 1).toUpperCase() + command.options[i].type.slice(1, command.options[i].type.length)}Option`](option => option.setName(command.options[i].name).setDescription(command.options[i].description).setRequired(command.options[i].required))
       }
     }
     commands.push(slashcommand);
