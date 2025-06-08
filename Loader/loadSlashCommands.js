@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { REST } = require("@discord.js/rest");
+const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord.js");
 
 module.exports = async bot => {
