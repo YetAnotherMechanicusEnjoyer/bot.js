@@ -8,7 +8,7 @@ module.exports = {
   category: "Utils",
   options: [],
 
-  async run(_, message) {
-    await message.reply(`Pong: \`${Date.now() - message.createdTimestamp}\`ms`);
+  async run(_, interaction) {
+    await interaction.reply(`Pong: \`${Date.now() - interaction.createdTimestamp}\`ms`);
   }
 }
