@@ -32,14 +32,21 @@ module.exports = {
     let Embed = new Discord.EmbedBuilder()
       .setColor(bot.color)
       .setTitle(`Commands`)
+      .setAuthor({
+        name: interaction.member.user.username,
+        iconURL: interaction.member.user.displayAvatarURL({ dynmaic: true })
+      })
       .setThumbnail(bot.user.displayAvatarURL({ dynamic: true }))
       .setDescription(`Available commands: \`${bot.commands.size}\`\nAvailable categories: \`${categories.length}\``)
       .setTimestamp()
-      .setFooter({ text: "\`/help\`" });
+      .setFooter({
+        text: "/help",
+        iconURL: bot.user.displayAvatarURL({ dynamic: true })
+      });
 
     categories.sort().forEach(async cat => {
       let commands = bot.commands.filter(cmd => cmd.category === cat);
-      Embed.addFields({ name: `${cat}`, value: `${commands.map(cmd => `\`${cmd.name}\`: \`${cmd.description}\``).join("\n")}` });
+      Embed.addFields({ name: `${cat}`, value: `${commands.map(cmd => `\`${cmd.name}\`: \`${cmd.description}\``).join("\n")}`, inline: true });
     });
 
     await interaction.reply({ embeds: [Embed] });
