@@ -16,6 +16,6 @@ module.exports = async (bot, interaction) => {
   if (interaction.type === Discord.InteractionType.ApplicationCommand) {
 
     let command = require(`../Commandes/${interaction.commandName}`)
-    command.run(bot, interaction, interaction.options, bot.db)
+    command.run(bot, interaction, command.options);
   }
 }
