@@ -9,7 +9,7 @@ module.exports = async (bot, message) => {
 
   if (!message.content.startsWith(prefix)) return;
 
-  let command = require(`../Commandes/${commandName}`);
+  let command = require(`../cmds/${commandName}`);
   if (!command) return message.reply("Error: No such command.");
 
   command.run(bot, message, args);

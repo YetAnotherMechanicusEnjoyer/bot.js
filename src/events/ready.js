@@ -1,5 +1,5 @@
 const Discord = require("discord.js")
-const loadSlashCommands = require("../Loader/loadSlashCommands")
+const loadSlashCommands = require("../loaders/loadSlashCommands")
 
 module.exports = async bot => {
 
