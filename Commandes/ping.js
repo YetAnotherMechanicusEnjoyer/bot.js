@@ -4,10 +4,11 @@ module.exports = {
   name: "ping",
   description: "Affiche la latence",
   permission: "Aucune",
-  dm: 2,
+  dm: Discord.InteractionContextType.Guild,
+  category: "Utils",
   options: [],
 
-  async run(bot, message) {
-    await message.reply(`Ping: \`${bot.ws.ping}\``);
+  async run(_, message) {
+    await message.reply(`Pong: \`${Date.now() - message.createdTimestamp}\`ms`);
   }
 }
