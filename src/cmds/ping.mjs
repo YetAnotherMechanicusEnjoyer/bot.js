@@ -1,6 +1,4 @@
-const Discord = require("discord.js");
-
-module.exports = {
+export const command = {
   name: "ping",
   description: "Affiche la latence",
   permission: "None",

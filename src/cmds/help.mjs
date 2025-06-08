@@ -1,6 +1,6 @@
-const Discord = require("discord.js");
+import Discord from "discord.js"
 
-module.exports = {
+export const command = {
   name: "help",
   description: "Affiche les commandes disponibles.",
   permission: "None",
