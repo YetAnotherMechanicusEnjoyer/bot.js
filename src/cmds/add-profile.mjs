@@ -1,5 +1,12 @@
 import Discord from "discord.js"
 
+async function createChannel(n, p) {
+  p.children.create({
+    name: n,
+    type: Discord.ChannelType.GuildText, parent: p
+  });
+}
+
 export const command = {
   name: "add-profile",
   description: "Ajouter une nouvelle catégorie pour un profil.",
@@ -29,22 +36,13 @@ export const command = {
       name: `${name}`,
       type: Discord.ChannelType.GuildCategory
     });
-    category.children.create({
-      name: "📷photo-base",
-      type: Discord.ChannelType.GuildText, parent: category
-    });
-    category.children.create({
-      name: "💦correction-images",
-      type: Discord.ChannelType.GuildText, parent: category
-    });
-    category.children.create({
-      name: "💌prompt-a-garder",
-      type: Discord.ChannelType.GuildText, parent: category
-    });
-    category.children.create({
-      name: "🫦insta-publi",
-      type: Discord.ChannelType.GuildText, parent: category
-    });
+    await createChannel("📷photo-base", category);
+    await createChannel("💦correction-images", category);
+    await createChannel("💌prompt-a-garder", category);
+    await createChannel("🫦insta-publi", category);
+    await createChannel("🍆only-fans-publi", category);
+    await createChannel("🔒info", category);
+    await createChannel("💸revenus", category);
 
     interaction.reply(`Channels for \`${name}\` profile are created. ✅`);
   }
