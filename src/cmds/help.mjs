@@ -48,7 +48,7 @@ export const command = {
 
       categories.sort().forEach(async cat => {
         let commands = bot.commands.filter(cmd => cmd.category === cat);
-        Embed.addFields({ name: `${cat}`, value: `${commands.map(cmd => `\`${cmd.name}\`: \`${cmd.description}\``).join("\n")}`, inline: true });
+        Embed.addFields({ name: `${cat}`, value: `${commands.map(cmd => `\*\*\_\_${cmd.name}:\_\_\*\* \`${cmd.description}\``).join("\n")}`, inline: false });
       });
     } else {
       Embed = new Discord.EmbedBuilder()
