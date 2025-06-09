@@ -23,7 +23,7 @@ export const command = {
     }
   ],
 
-  async run(_, interaction, args) {
+  async run(bot, interaction, args) {
     let name = args.getString("name");
 
     if (!name) return interaction.reply("Error: Missing Argument.");
@@ -44,6 +44,7 @@ export const command = {
     await createChannel("🔒info", category);
     await createChannel("💸revenus", category);
 
+    bot.profiles.set(name, name);
     interaction.reply(`Channels for \`${name}\` profile are created. ✅`);
   }
 }
