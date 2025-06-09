@@ -65,15 +65,23 @@ export const command = {
           iconURL: bot.user.displayAvatarURL({ dynamic: true })
         });
 
+      let context = cmd.context;
+      if (typeof context !== "string") {
+        if (context === 0) context = "Guild"
+        else if (context === 1) context = "DM"
+        else if (context === 2) context = "PrivateDM"
+        else context = "Error: Context"
+      }
+
       Embed.addFields({ name: `Name`, value: `\`${cmd.name}\``, inline: true });
       Embed.addFields({ name: `Description`, value: `\`${cmd.description}\``, inline: false });
       Embed.addFields({
         name: `Requied Permission`,
         value: `\`${typeof cmd.permission !== "bigint" ?
-          cmd.permission : new Discord.PermissionBitField(cmd.permission).toArray(false)}\``,
+          cmd.permission : new Discord.PermissionsBitField(cmd.permission).toArray()}\``,
         inline: true
       });
-      Embed.addFields({ name: `Context`, value: `\`${cmd.context}\``, inline: true });
+      Embed.addFields({ name: `Context`, value: `\`${context}\``, inline: true });
       Embed.addFields({ name: `Category`, value: `\`${cmd.category}\``, inline: true });
     }
 
