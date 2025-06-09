@@ -16,7 +16,7 @@ export const command = {
     }
   ],
 
-  async run(bot, interaction, args) {
+  async run(_, interaction, args) {
     let name = args.getString("name");
 
     if (!name) return interaction.reply("Error: Missing Argument.");
