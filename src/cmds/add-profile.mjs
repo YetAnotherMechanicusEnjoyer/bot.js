@@ -27,6 +27,7 @@ export const command = {
     let name = args.getString("name");
 
     if (!name) return interaction.reply("Error: Missing Argument.");
+    bot.profiles.set(name, name);
 
     let category = await interaction.guild.channels.cache.find(
       channel => channel.name === name && channel.type === Discord.ChannelType.GuildCategory);
@@ -44,7 +45,6 @@ export const command = {
     await createChannel("🔒info", category);
     await createChannel("💸revenus", category);
 
-    bot.profiles.set(name, name);
     interaction.reply(`Channels for \`${name}\` profile are created. ✅`);
   }
 }
